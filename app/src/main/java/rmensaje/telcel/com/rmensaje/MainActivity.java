@@ -97,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         try {
-            loadingPanel = (RelativeLayout) findViewById(R.id.loadingPanel);
+           loadingPanel = (RelativeLayout) findViewById(R.id.loadingPanel);
             //Esto sirve si la actualizacion no se realiza al principio. No es este caso.
-            //loadingPanel.setVisibility(View.GONE);
-            comenzarActualizar();
+           loadingPanel.setVisibility(View.GONE);
+         //   comenzarActualizar();
 
         }catch (Exception ex){
             //Por Cualquier error.
