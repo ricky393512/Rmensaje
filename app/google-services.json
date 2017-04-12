@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "431697094454",
+    "firebase_url": "https://fir-rmensaje.firebaseio.com",
+    "project_id": "firebase-rmensaje",
+    "storage_bucket": "firebase-rmensaje.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431697094454:android:7131e3186704a100",
+        "android_client_info": {
+          "package_name": "com.rick.rmensaje"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431697094454-qo0rvs3j1dv5c0jd0ov25i02me369tcb.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "431697094454-igl0it4i1ua7251k3rpc634bup7d32h0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rick.rmensaje",
+            "certificate_hash": "f267a4bca17174630941e49b70130774c1f5ea92"
+          }
+        },
+        {
+          "client_id": "431697094454-2u9orm879j7qm93d47m00lp388u3olaf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhgnRfMe4emkkIVQlg4jJztux07YB98bg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431697094454-qo0rvs3j1dv5c0jd0ov25i02me369tcb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431697094454:android:2816a0be6b97ff1a",
+        "android_client_info": {
+          "package_name": "rmensaje.telcel.com.rmensaje"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431697094454-nncd977rupt170hnmcmdqaqg735p2fd2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rmensaje.telcel.com.rmensaje",
+            "certificate_hash": "2c9f0e6cc555516a46fcc37892d6bf2a653559d7"
+          }
+        },
+        {
+          "client_id": "431697094454-qo0rvs3j1dv5c0jd0ov25i02me369tcb.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "431697094454-2u9orm879j7qm93d47m00lp388u3olaf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhgnRfMe4emkkIVQlg4jJztux07YB98bg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431697094454-qo0rvs3j1dv5c0jd0ov25i02me369tcb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
