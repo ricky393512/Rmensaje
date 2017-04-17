@@ -3,12 +3,14 @@ package rmensaje.telcel.com.rmensaje;
 /**
  * Created by PIN7025 on 12/04/2017.
  */
+
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
@@ -64,11 +66,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         //If the key AnotherActivity has  value as True then when the user taps on notification, in the app AnotherActivity will be opened.
         //If the key AnotherActivity has  value as False then when the user taps on notification, in the app MainActivity will be opened.
         String TrueOrFlase = remoteMessage.getData().get("AnotherActivity");
+        String paginaParaDireccionar = remoteMessage.getData().get("otrapagina");
 
         //To get a Bitmap image from the URL received
         bitmap = getBitmapfromUrl(imageUri);
 
-        sendNotification(message, bitmap, TrueOrFlase);
+        sendNotification(message, bitmap, TrueOrFlase,paginaParaDireccionar);
 
     }
 
@@ -77,10 +80,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      * Create and show a simple notification containing the received FCM message.
      */
 
-    private void sendNotification(String messageBody, Bitmap image, String TrueOrFalse) {
+    private void sendNotification(String messageBody, Bitmap image, String TrueOrFalse,String paginaParaDireccionar) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("AnotherActivity", TrueOrFalse);
+        intent.putExtra("paginaParaDireccionar",paginaParaDireccionar);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 
@@ -96,7 +100,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .bigPicture(image).setSummaryText("Summary text appears on expanding the notification"))/*Notification with Image*/
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
-                .setContentIntent(pendingIntent);
+              .setContentIntent(pendingIntent);
+
+        notificationBuilder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+        // API 11 o mayor
+        //    notificationBuilder.setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND | Notification.FLAG_SHOW_LIGHTS);
+        notificationBuilder.setLights(Color.YELLOW, 300, 100);
+
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

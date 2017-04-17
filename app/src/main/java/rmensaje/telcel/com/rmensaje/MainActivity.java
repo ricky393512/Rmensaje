@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -123,9 +124,15 @@ public class MainActivity extends AppCompatActivity {
                 String value = getIntent().getExtras().getString(key);
 
                 if (key.equals("AnotherActivity") && value.equals("True")) {
-                    Intent intent = new Intent(this, AnotherActivity.class);
-                    intent.putExtra("value", value);
-                    startActivity(intent);
+              //      Intent intent = new Intent(this, AnotherActivity.class);
+              //      intent.putExtra("value", value);
+                //    startActivity(intent);
+                    String url = getIntent().getExtras().getString("paginaParaDireccionar");
+                    //    if(url != null) {
+                    Log.e("RVisorr", "paginaParaDireccionar " + url);
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
                     finish();
                 }
 
