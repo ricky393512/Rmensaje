@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
         String token = FirebaseInstanceId.getInstance().getToken();
 
         // Log and toast
-        Log.d("AndroidBash", token);
+   //     Log.d("AndroidBash", token);
         Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
     }
 

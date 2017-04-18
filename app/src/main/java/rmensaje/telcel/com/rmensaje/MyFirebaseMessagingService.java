@@ -100,6 +100,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .bigPicture(image).setSummaryText("Summary text appears on expanding the notification"))/*Notification with Image*/
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
+                //.setShowWhen(true)
               .setContentIntent(pendingIntent);
 
         notificationBuilder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
