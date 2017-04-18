@@ -16,7 +16,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import rmensaje.telcel.com.rmensaje.utils.Autoupdater;
@@ -145,16 +144,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void subscribeToPushService() {
       //  FirebaseApp.initializeApp(this);
-        FirebaseMessaging.getInstance().subscribeToTopic("news");
+        FirebaseMessaging.getInstance().subscribeToTopic("promocionesTelcel");
 
         Log.d("AndroidBash", "Subscribed");
         Toast.makeText(MainActivity.this, "Subscribed", Toast.LENGTH_SHORT).show();
 
-        String token = FirebaseInstanceId.getInstance().getToken();
+    //    String token = null;
+
+      //      token = FirebaseInstanceId.getInstance().getToken();
 
         // Log and toast
-   //     Log.d("AndroidBash", token);
-        Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+      //
+     //   Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+     //   Log.d("AndroidBash", token);
     }
 
     @Override

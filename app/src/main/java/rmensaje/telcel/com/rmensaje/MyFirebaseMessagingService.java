@@ -69,11 +69,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         //If the key AnotherActivity has  value as False then when the user taps on notification, in the app MainActivity will be opened.
         String TrueOrFlase = remoteMessage.getData().get("AnotherActivity");
         String paginaParaDireccionar = remoteMessage.getData().get("otrapagina");
+        String ticker = remoteMessage.getData().get("ticker");
+        String tituloNotificacion = remoteMessage.getData().get("tituloNotificacion");
+        String tituloInterior = remoteMessage.getData().get("tituloInterior");
+        String sumario = remoteMessage.getData().get("sumario");
+
 
         //To get a Bitmap image from the URL received
         bitmap = getBitmapfromUrl(imageUri);
         bitmapIcon = getBitmapfromUrl(imageIcon);
-        sendNotification(message, bitmap, TrueOrFlase,paginaParaDireccionar,bitmapIcon);
+        sendNotification(message, bitmap, TrueOrFlase,paginaParaDireccionar,bitmapIcon,ticker,tituloNotificacion,sumario,tituloInterior);
 
     }
 
@@ -82,7 +87,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      * Create and show a simple notification containing the received FCM message.
      */
 
-    private void sendNotification(String messageBody, Bitmap image, String TrueOrFalse,String paginaParaDireccionar,Bitmap imageIcon) {
+    private void sendNotification(String messageBody, Bitmap image, String TrueOrFalse,String paginaParaDireccionar,Bitmap imageIcon,String ticker,String tituloNotificacion,String sumario,String tituloInterior) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("AnotherActivity", TrueOrFalse);
@@ -98,19 +103,19 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setLargeIcon(image)/*Notification icon image*/
                 .setSmallIcon(R.drawable.ic_ondemand)
                 //.setContentTitle(messageBody)
-                .setContentTitle("Titulo de la promocion")
+                .setContentTitle(tituloNotificacion)
                 .setContentText(messageBody)
                 //.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
                 .setLargeIcon(imageIcon)
-                .setTicker("Tickerrrrrrrrrrrrrrrrrr  de la promocion")
-                .setStyle(new NotificationCompat.BigPictureStyle().setBigContentTitle("Titulo BigConten Title")
-                        .bigPicture(image).setSummaryText("Summary text appears on expanding the notification"))/*Notification with Image*/
+                .setTicker(ticker)
+                .setStyle(new NotificationCompat.BigPictureStyle().setBigContentTitle(tituloInterior)
+                        .bigPicture(image).setSummaryText(sumario))/*Notification with Image*/
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 //.setShowWhen(true)
               .setContentIntent(pendingIntent);
 
-        notificationBuilder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
+        notificationBuilder.setVibrate(new long[] { 100, 200, 100, 500 });
         // API 11 o mayor
         //    notificationBuilder.setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND | Notification.FLAG_SHOW_LIGHTS);
         notificationBuilder.setLights(Color.YELLOW, 300, 100);
