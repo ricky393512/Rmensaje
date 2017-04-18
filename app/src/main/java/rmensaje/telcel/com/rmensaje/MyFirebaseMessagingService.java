@@ -28,6 +28,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "FirebaseMessageService";
     Bitmap bitmap;
+    Bitmap bitmapIcon;
 
     /**
      * Called when message is received.
@@ -63,6 +64,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String message = remoteMessage.getData().get("message");
         //imageUri will contain URL of the image to be displayed with Notification
         String imageUri = remoteMessage.getData().get("image");
+        String imageIcon = remoteMessage.getData().get("imageIcon");
         //If the key AnotherActivity has  value as True then when the user taps on notification, in the app AnotherActivity will be opened.
         //If the key AnotherActivity has  value as False then when the user taps on notification, in the app MainActivity will be opened.
         String TrueOrFlase = remoteMessage.getData().get("AnotherActivity");
@@ -70,8 +72,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         //To get a Bitmap image from the URL received
         bitmap = getBitmapfromUrl(imageUri);
-
-        sendNotification(message, bitmap, TrueOrFlase,paginaParaDireccionar);
+        bitmapIcon = getBitmapfromUrl(imageIcon);
+        sendNotification(message, bitmap, TrueOrFlase,paginaParaDireccionar,bitmapIcon);
 
     }
 
@@ -80,7 +82,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      * Create and show a simple notification containing the received FCM message.
      */
 
-    private void sendNotification(String messageBody, Bitmap image, String TrueOrFalse,String paginaParaDireccionar) {
+    private void sendNotification(String messageBody, Bitmap image, String TrueOrFalse,String paginaParaDireccionar,Bitmap imageIcon) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("AnotherActivity", TrueOrFalse);
@@ -95,7 +97,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 //.setContentTitle(messageBody)
                 .setContentTitle("Titulo de la promocion")
                 .setContentText(messageBody)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                //.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                .setLargeIcon(imageIcon)
                 .setTicker("Tickerrrrrrrrrrrrrrrrrr  de la promocion")
                 .setStyle(new NotificationCompat.BigPictureStyle().setBigContentTitle("Titulo BigConten Title")
                         .bigPicture(image).setSummaryText("Summary text appears on expanding the notification"))/*Notification with Image*/
