@@ -95,8 +95,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 //.setContentTitle(messageBody)
                 .setContentTitle("Titulo de la promocion")
                 .setContentText(messageBody)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
                 .setTicker("Tickerrrrrrrrrrrrrrrrrr  de la promocion")
-                .setStyle(new NotificationCompat.BigPictureStyle()
+                .setStyle(new NotificationCompat.BigPictureStyle().setBigContentTitle("Titulo BigConten Title")
                         .bigPicture(image).setSummaryText("Summary text appears on expanding the notification"))/*Notification with Image*/
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
