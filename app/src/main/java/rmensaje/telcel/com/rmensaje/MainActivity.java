@@ -146,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
       //  FirebaseApp.initializeApp(this);
         FirebaseMessaging.getInstance().subscribeToTopic("promocionesTelcel");
 
-        Log.d("AndroidBash", "Subscribed");
-        Toast.makeText(MainActivity.this, "Subscribed", Toast.LENGTH_SHORT).show();
+     //   Log.d("AndroidBash", "Subscribed");
+    //    Toast.makeText(MainActivity.this, "Subscribed", Toast.LENGTH_SHORT).show();
 
     //    String token = null;
 
