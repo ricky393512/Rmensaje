@@ -3,6 +3,9 @@ package rmensaje.telcel.com.rmensaje;
 /**
  * Created by PIN7025 on 12/04/2017.
  */
+
+import android.content.Context;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -42,5 +45,26 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
      */
     private void sendRegistrationToServer(String token) {
         // TODO: Implement this method to send token to your app server.
+        //Obtener telefono e imei
+
+        TelephonyManager mTelephonyManager;
+        mTelephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String numeroTelefono = mTelephonyManager.getLine1Number();
+        Log.e(TAG, "el telefono ess   1!!!!!!!!!! : " + numeroTelefono);
+
+        TelephonyManager telemamanger = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        String getSimSerialNumber = telemamanger.getSimSerialNumber();
+
+        Log.e(TAG, "el telefono es sim   1!!!!!!!!!! : " + getSimSerialNumber);
+
+        String imei = getImei(getBaseContext());
+
+        Log.e(TAG, "el imei es sim   1!!!!!!!!!! : " + imei);
+    }
+
+    public static String getImei(Context c) {
+        TelephonyManager telephonyManager = (TelephonyManager) c
+                .getSystemService(Context.TELEPHONY_SERVICE);
+        return telephonyManager.getDeviceId();
     }
 }
